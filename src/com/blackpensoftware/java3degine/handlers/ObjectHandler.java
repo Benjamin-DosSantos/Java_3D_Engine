@@ -12,6 +12,13 @@ import java.util.ArrayList;
 public class ObjectHandler {
     ArrayList<Object3D> allObjects = new ArrayList<Object3D>();
     
+    public void processCameraChanges(Camera mainCamera){
+        for(Object3D currentObject: allObjects){
+            currentObject.moveObject(mainCamera.getXChange(), mainCamera.getYChange(), mainCamera.getZChange());
+        }
+        mainCamera.lockInChanges();
+    }
+    
     public void addObject(Object3D objectToAdd){
         allObjects.add(objectToAdd);
     }
@@ -26,7 +33,7 @@ public class ObjectHandler {
     
     public void drawAllObjects(Graphics g){
         for(Object3D currentObject: allObjects){
-            currentObject.drawObject(g);
+            currentObject.fillObject(g);
         }
     }
 }// End of class

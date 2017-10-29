@@ -32,6 +32,12 @@ public class VectorPoint {
         this.color = color;
     }
 
+    public void movePoint(int xChange, int yChange, int zChange){
+        this.xPos += xChange;
+        this.yPos += yChange;
+        this.zPos += zChange;
+    }
+    
     public void drawPoint(Graphics g){
         g.setColor(color);
         g.fillRect((int) xPos, (int) yPos, 10, 10);

@@ -1,5 +1,7 @@
 package com.blackpensoftware.java3degine.core;
 
+import com.blackpensoftware.java3degine.handlers.Camera;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -13,8 +15,10 @@ public class Java3DEngine {
     static double height = screenSize.getHeight();
     
     public static void main(String[] args){
+        Camera mainCamera = new Camera();
+        
         JFrame mainFrame = new JFrame("Main Frame");
-        JPanel mainPanel = new DrawPanel();
+        JPanel mainPanel = new DrawPanel(mainCamera);
         
         mainFrame.add(mainPanel);
         mainFrame.setVisible(true);

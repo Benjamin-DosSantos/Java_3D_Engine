@@ -24,9 +24,25 @@ public class Object3D {
         }
     }
     
+    public void moveObject(int xChange, int yChange, int zChange){
+        for(VectorPoint currentPoint: allPoints){
+            currentPoint.movePoint(xChange, yChange, zChange);
+        }
+    }
+    
     public void drawObject(Graphics g){
         for(VectorPoint currentPoint: allPoints){
             currentPoint.drawPoint(g);
         }
+    }
+    
+    public void fillObject(Graphics g){
+        Polygon currentObjectToDraw = new Polygon();
+        g.setColor(allPoints.get(0).getColor());
+        
+        for(VectorPoint currentPoint: allPoints){
+            currentObjectToDraw.addPoint((int) currentPoint.getxPos(), (int) currentPoint.getyPos());
+        }
+        g.fillPolygon(currentObjectToDraw);
     }
 }// End of class
